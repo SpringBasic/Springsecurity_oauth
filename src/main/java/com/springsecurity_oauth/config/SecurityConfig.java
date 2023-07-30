@@ -24,7 +24,7 @@ public class SecurityConfig {
         );
         // oauth2 login 관련
         // login 페이지 설정
-        httpSecurity.oauth2Login(oauth2 -> oauth2.loginPage("/loginPage"));
+        httpSecurity.oauth2Login(Customizer.withDefaults());
         httpSecurity.oauth2Client(Customizer.withDefaults());
 
         return httpSecurity.build();
