@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
-@RequiredArgsConstructor
-@RequestMapping
 @RestController
+@RequestMapping
+@RequiredArgsConstructor
 public class LoginController {
     @GetMapping("/loginPage")
     public String loginPage() {

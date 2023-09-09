@@ -61,6 +61,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
         User createdUser = getUser(oAuth2UserInfo, socialType);
 
+        // CustomOAuthUser 반환
 
         return null;
     }
