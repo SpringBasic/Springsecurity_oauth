@@ -1,5 +1,31 @@
+server:
+  port: 8081
+
 spring:
   security:
     user:
       name: user
       password: 1234
+
+    oauth2:
+      client:
+        ## client 정보
+        registration:
+          keycloak:
+            client-id: oauth2-client-app
+            client-name: oauth2-client-app
+            client-secret: YYuqgjv4eC8nEbbxu24rEMlrFd5kSGk6
+            redirect-uri: http://localhost:8081/login/oauth2/code/keycloak
+            authorization-grant-type: authorization_code # 권한부여유형
+            client-authentication-method: client_secret_basic
+            scope: openid,profile,email
+
+        provider:
+          keycloak:
+            authorization-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/auth
+            issuer-uri: http://localhost:8080/realms/oauth2
+            token-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/token
+            user-info-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/userinfo
+            jwk-set-uri: http://localhost:8080/realms/oauth2/protocol/openid-connect/certs
+            user-name-attribute: preferred_username
+
