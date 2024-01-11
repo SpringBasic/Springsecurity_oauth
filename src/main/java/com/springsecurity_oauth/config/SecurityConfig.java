@@ -19,15 +19,15 @@ public class SecurityConfig {
     SecurityFilterChain securityFilterChain4(HttpSecurity httpSecurity, HandlerMappingIntrospector introspector) throws Exception {
         MvcRequestMatcher.Builder mvc = new MvcRequestMatcher.Builder(introspector);
         httpSecurity.authorizeHttpRequests(auth -> auth
-                .requestMatchers("/loginPage").permitAll()
+                .requestMatchers("/").permitAll()
                 .anyRequest().authenticated()
         );
         // oauth2 login 관련
         // login 페이지 설정
         httpSecurity.oauth2Login(Customizer.withDefaults());
         httpSecurity.oauth2Client(Customizer.withDefaults());
+        httpSecurity.logout(logout -> logout.logoutSuccessUrl("/"));
 
         return httpSecurity.build();
     }
-
 }

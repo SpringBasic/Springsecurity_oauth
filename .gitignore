@@ -62,3 +62,7 @@ out/
 hs_err_pid*
 replay_pid*
 >>>>>>> 4cd995d36697ed52c13dfab4d18257d53f73fc18
+
+
+## docker env
+/springsecurity_docker/.env
