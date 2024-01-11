@@ -2,12 +2,13 @@ package com.springsecurity_oauth.domain;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor(access= AccessLevel.PROTECTED)
 @Entity
+@NoArgsConstructor(access= AccessLevel.PROTECTED)
 public class User {
     @Id
     @Column(name = "usr_id")
@@ -28,6 +29,15 @@ public class User {
 
     private String password;
 
-    private String email;
 
+    @Builder
+    private User(Long id, SocialType socialType, RoleType role,
+                String oauthId, String username, String password, String email) {
+        this.id = id;
+        this.socialType = socialType;
+        this.role = role;
+        this.oauthId = oauthId;
+        this.username = username;
+        this.password = password;
+    }
 }

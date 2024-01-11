@@ -1,5 +1,8 @@
 package com.springsecurity_oauth.domain.oauth;
 
+import com.springsecurity_oauth.domain.RoleType;
+import com.springsecurity_oauth.domain.SocialType;
+import com.springsecurity_oauth.domain.User;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.oauth2.client.registration.ClientRegistration;
 import org.springframework.security.oauth2.core.user.OAuth2User;
@@ -43,5 +46,15 @@ public abstract class OAuth2UserInfo implements ProviderUser {
     @Override
     public Map<String, Object> getAttributes() {
         return oAuth2User.getAttributes();
+    }
+
+    public User toEntity(SocialType socialType) {
+        return User.builder()
+                .oauthId(getId())
+                .username(getUsername())
+                .password(getPassword())
+                .role(RoleType.GUEST)
+                .socialType(socialType)
+                .build();
     }
 }

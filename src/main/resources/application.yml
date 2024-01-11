@@ -60,7 +60,7 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3299/security_db?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&autoReconnect=true
+    url: jdbc:mysql://localhost:3299/security_oauth_db?characterEncoding=UTF-8&serverTimezone=Asia/Seoul&autoReconnect=true
     username: root
     password: 1234
 
